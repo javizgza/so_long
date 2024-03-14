@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 14:47:28 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 11:39:07 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:47:20 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_position	ft_checkinitposition(char **map)
 void	ft_exploremap(char **map, int i, size_t j, int map_height)
 {
 	if (i < 0 || i >= map_height || j < 0 || j >= ft_strlen(map[i]))
-		ft_error("Not in map");
+		ft_error("Not playable");
 	if (map[i][j] == 'a' || map[i][j] == '1')
 		return ;
 	map[i][j] = 'a';

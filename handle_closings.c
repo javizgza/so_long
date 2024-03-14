@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:27:20 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/13 17:14:09 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:33:51 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 #include <stdlib.h>
 #include "so_long.h"
 
-int	ft_handle_esc(int keycode, void *param)
+int	ft_handle_esc(int keycode, t_moves *moves)
 {
-	(void)param;
 	if (keycode == 53)
+	{
+		ft_printf("DEFEAT.\nReally? You can't pass it?\n");
+		ft_freemap(moves->map);
 		exit(0);
+	}
 	return (0);
 }
 
-int	ft_handle_key(int keycode, void *param)
-{
-	if (!param)
-		ft_printf("%i\n", keycode);
-	return (0);
-}
-
-int	close_window(int keycode, void *param)
+int	close_window(int keycode, t_moves *moves)
 {
 	(void)keycode;
-	(void)param;
+	ft_printf("DEFEAT.\nReally? You can't pass it?\n");
+	ft_freemap(moves->map);
 	exit(0);
 }

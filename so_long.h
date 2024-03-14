@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:43:56 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 11:36:42 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:33:09 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_moves
 	char	**map;
 	int		collected;
 	int		totalconsum;
+	int		move_count;
 }				t_moves;
 
 typedef struct s_position
@@ -63,16 +64,17 @@ int			ft_draw_character(t_moves *moves, char **map, void *char_img);
 void		ft_checkinitialcharpos(char **map, t_moves *moves);
 void		ft_print_map(char **map);
 int			ft_handle_moves(int keycode, t_moves *moves);
-int			close_window(int keycode, void *param);
 void		ft_collectables(t_moves *moves);
 void		ft_move(t_moves *moves, int new_x, int new_y);
-int			ft_handle_esc(int keycode, void *param);
-int			ft_handle_key(int keycode, void *param);
-int			close_window(int keycode, void *param);
+int			ft_handle_esc(int keycode, t_moves *moves);
+int			ft_handle_key(int keycode, t_moves *moves);
+int			close_window(int keycode, t_moves *moves);
 int			ft_morethanonep(char **map);
 int			ft_morethanonee(char **map);
 void		checks(char **map);
 int			ft_mapgamesetspos(char **map);
 int			ft_mapgamesetsconsum(char **map);
+void		ft_freemap(char **map);
+
 
 #endif

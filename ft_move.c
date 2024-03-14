@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:09:52 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/13 17:11:30 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:13:40 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_move(t_moves *moves, int new_x, int new_y)
 		moves->collected == moves->totalconsum)
 	{
 		mlx_destroy_window(moves->mlx, moves->win);
+		ft_printf("SUCCESS.\nCongratulations!\n");
+		ft_freemap(moves->map);
 		exit(0);
 	}
 }
@@ -63,16 +65,25 @@ int	ft_handle_moves(int keycode, t_moves *moves)
 {
 	int	new_x;
 	int	new_y;
+	int	prev_y;
+	int	prev_x;
 
+	prev_y = moves->pos_y;
+	prev_x = moves->pos_x;
 	new_x = moves->pos_x;
 	new_y = moves->pos_y;
-	if (keycode == 126)
+	if (keycode == 126 || keycode == 13)
 		ft_move(moves, moves->pos_x, moves->pos_y - 1);
-	if (keycode == 125)
+	if (keycode == 125 || keycode == 1)
 		ft_move(moves, moves->pos_x, moves->pos_y + 1);
-	if (keycode == 123)
+	if (keycode == 123 || keycode == 0)
 		ft_move(moves, moves->pos_x - 1, moves->pos_y);
-	if (keycode == 124)
+	if (keycode == 124 || keycode == 2)
 		ft_move(moves, moves->pos_x + 1, moves->pos_y);
+	if (prev_x != moves->pos_x || prev_y != moves->pos_y)
+	{
+		moves->move_count++;
+		ft_printf("Movements made: %d\n", moves->move_count);
+	}
 	return (0);
 }

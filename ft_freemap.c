@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks_main.c                                      :+:      :+:    :+:   */
+/*   ft_freemap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 11:25:09 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 15:46:45 by jazarago         ###   ########.fr       */
+/*   Created: 2024/03/14 12:36:58 by jazarago          #+#    #+#             */
+/*   Updated: 2024/03/14 15:14:05 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	checks(char **map)
+void	ft_freemap(char **map)
 {
-	int i;
-	int	j;
-	int	map_height;
+	int	y;
 
-	i = 0;
-	j = 0;
-	map_height = 0;
-	ft_mapform(map);
-	ft_mapchars(map);
-	ft_mapfirstandlast(map);
-	ft_maplines(map);
-	ft_mapgamesetsexit(map);
-	ft_mapgamesetsconsum(map);
-	ft_mapgamesetspos(map);
-	ft_exploremap(map, i, j, map_height);
+	y = 0;
+	while (map[y])
+	{
+		free(map[y]);
+		y++;
+	}
+	free(map);
 }

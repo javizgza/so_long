@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:52:30 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 11:40:50 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:20:18 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**ft_parse(char *argv)
 	return (res);
 }
 
-void	ft_print_map(char **map)
+/* void	ft_print_map(char **map)
 {
 	int	i;
 
@@ -63,4 +63,4 @@ void	ft_print_map(char **map)
 		ft_printf("%s", map[i]);
 		i++;
 	}
-}
+} */

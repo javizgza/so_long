@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:58:04 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 11:29:41 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:33:39 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	game_setup(t_moves *moves)
 	ft_checkinitialcharpos(moves->map, moves);
 	ft_collectables(moves);
 	draw_game(moves);
-	ft_print_map(moves->map);
 	mlx_hook(moves->win, 2, 0, ft_handle_moves, moves);
 	mlx_key_hook(moves->win, ft_handle_esc, moves);
 	mlx_hook(moves->win, 17, 0L, close_window, moves);
