@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:58:04 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 14:33:39 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/22 14:34:16 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,24 @@ void	load_images(t_moves *moves)
 
 	moves->background_img = mlx_xpm_file_to_image(moves->mlx, \
 		"./sprites/grass.xpm", &width, &height);
+	if (!moves->background_img)
+		ft_error("Failed load image");
 	moves->wall_img = mlx_xpm_file_to_image(moves->mlx, \
 		"./sprites/wood.xpm", &width, &height);
+	if (!moves->wall_img)
+		ft_error("Failed load image");
 	moves->consum_img = mlx_xpm_file_to_image(moves->mlx, \
 		"./sprites/ball.xpm", &width, &height);
+	if (!moves->consum_img)
+		ft_error("Failed load image");
 	moves->exit_img = mlx_xpm_file_to_image(moves->mlx, \
 		"./sprites/goal1.xpm", &width, &height);
+	if (!moves->exit_img)
+		ft_error("Failed load image");
 	moves->char_img = mlx_xpm_file_to_image(moves->mlx, \
 		"./sprites/character.xpm", &width, &height);
+	if (!moves->char_img)
+		ft_error("Failed load image");
 }
 
 void	draw_game(t_moves *moves)
@@ -64,11 +74,14 @@ void	game_setup(t_moves *moves)
 int	main(int argc, char **argv)
 {
 	t_moves	moves;
+	char	**map;
 
 	if (argc == 2)
 	{
+		map = ft_parse(argv[1]);
+		checks(map);
+		ft_freemap(map);
 		moves.map = ft_parse(argv[1]);
-		checks(moves.map);
 		initialize_moves(&moves, moves.map);
 		load_images(&moves);
 		game_setup(&moves);

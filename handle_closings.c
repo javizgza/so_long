@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialization.c                                   :+:      :+:    :+:   */
+/*   handle_closings.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:27:20 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 14:33:51 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:58:16 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_handle_esc(int keycode, t_moves *moves)
 	return (0);
 }
 
-int	close_window(int keycode, t_moves *moves)
+int	close_window(int keycode)
 {
 	(void)keycode;
 	ft_printf("DEFEAT.\nReally? You can't pass it?\n");
-	ft_freemap(moves->map);
 	exit(0);
+	return (0);
 }

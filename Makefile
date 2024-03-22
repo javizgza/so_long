@@ -6,7 +6,7 @@
 #    By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 10:46:06 by jazarago          #+#    #+#              #
-#    Updated: 2024/03/14 15:15:53 by jazarago         ###   ########.fr        #
+#    Updated: 2024/03/22 14:30:21 by jazarago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ all: 		$(NAME)
 
 $(NAME):	$(OBJ)
 			@MAKE -C $(LIBFT)
-			@$(CC) $(CFLAGS) $(OBJ) -fsanitize=address $(MLX_FLAGS) Libft/Libft.a -o $(NAME)
+			@$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) Libft/Libft.a -o $(NAME)
 
 .c.o:
 			$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
@@ -45,6 +45,6 @@ clean:
 fclean:		clean
 			@$(RM) $(NAME)
 
-re: 		all clean
+re: 		fclean all
 
 .PHONY:		all clean fclean re

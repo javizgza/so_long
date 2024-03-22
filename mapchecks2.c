@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 14:47:28 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 15:47:20 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:18:16 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,15 @@ t_position	ft_checkinitposition(char **map)
 	return (pos);
 }
 
-void	ft_exploremap(char **map, int i, size_t j, int map_height)
+void	ft_exploremap(char **map, int i, size_t j)
 {
-	if (i < 0 || i >= map_height || j < 0 || j >= ft_strlen(map[i]))
-		ft_error("Not playable");
 	if (map[i][j] == 'a' || map[i][j] == '1')
 		return ;
 	map[i][j] = 'a';
-	ft_exploremap(map, i + 1, j, map_height);
-	ft_exploremap(map, i - 1, j, map_height);
-	ft_exploremap(map, i, j + 1, map_height);
-	ft_exploremap(map, i, j - 1, map_height);
+	ft_exploremap(map, i + 1, j);
+	ft_exploremap(map, i - 1, j);
+	ft_exploremap(map, i, j + 1);
+	ft_exploremap(map, i, j - 1);
 }
 
 int	ft_checkfilledcorrect(char **map)
@@ -115,6 +113,6 @@ int	ft_mapgamesetspos(char **map)
 	if (poscounter == 1)
 		return (1);
 	else
-		ft_error("Invalid game");
+		ft_error("Invalid P/P's");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:18:48 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 11:32:43 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:18:31 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,6 @@ int	ft_mapgamesetsexit(char **map)
 	if (exitcounter == 1)
 		return (1);
 	else
-		ft_error("Invalid game");
+		ft_error("Invalid E/E's");
 	return (0);
 }

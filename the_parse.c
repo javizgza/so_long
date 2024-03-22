@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:52:30 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 15:20:18 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/22 14:24:19 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,42 +25,46 @@ int	ft_checkber(char *mapname)
 	return (1);
 }
 
+int	count_lines_in_file(const char *filename)
+{
+	int		len;
+	int		fd;
+	char	*line;
+
+	fd = open(filename, O_RDONLY);
+	len = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		len++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (len);
+}
+
 char	**ft_parse(char *argv)
 {
 	char	**res;
 	int		len;
+	int		i;
 	int		fd;
 	char	*line;
 
 	if (!ft_checkber(argv))
 		ft_error("Not .ber");
-	fd = open(argv, 0);
-	len = 0;
-	while (get_next_line(fd))
-		len++;
-	close(fd);
+	len = count_lines_in_file(argv);
 	res = (char **)ft_calloc((len + 1), sizeof(char *));
-	fd = open(argv, 0);
+	fd = open(argv, O_RDONLY);
+	i = 0;
 	line = get_next_line(fd);
-	len = 0;
 	while (line)
 	{
-		res[len] = line;
-		len++;
+		res[i] = line;
 		line = get_next_line(fd);
+		i += 1;
 	}
-	close(fd);
+	res[i] = NULL;
 	return (res);
 }
-
-/* void	ft_print_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		ft_printf("%s", map[i]);
-		i++;
-	}
-} */

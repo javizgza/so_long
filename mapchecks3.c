@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:34:52 by jazarago          #+#    #+#             */
-/*   Updated: 2024/03/14 12:22:48 by jazarago         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:17:48 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	ft_mapgamesetsconsum(char **map)
 	if (consumcounter >= 1)
 		return (1);
 	else
-		ft_error("Invalid game");
+		ft_error("No Consum");
 	return (0);
 }
